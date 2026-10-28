@@ -1,13 +1,39 @@
-pip install -r requirements.txt
-DATABASE_URL=postgresql://user:password@localhost:5432/movie_db
-alembic upgrade head
-uvicorn app.main:app --reload
-class Movie(Base):
-    __tablename__ = "movies"
+# Movies API
 
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
-    description = Column(Text, nullable=True)
-    genre = Column(String, nullable=True)
-    year = Column(Integer, nullable=True)
-    rating = Column(Float, nullable=True)
+Учебный проект CRUD API для управления фильмами.
+
+## 🎯 Описание проекта
+
+Асинхронное REST API приложение на FastAPI для управления базой данных фильмов. Проект реализует принципы чистой архитектуры, включает валидацию данных на всех уровнях и покрытие тестами.
+
+## 🚀 Основные возможности
+
+- CRUD операции для управления фильмами (создание, чтение, обновление, удаление).
+- Фильтрация и сортировка списка фильмов по различным параметрам.
+- Валидация данных на уровне API (Pydantic) и на уровне базы данных (SQLAlchemy constraints).
+- Асинхронная работа с базой данных через SQLAlchemy 2.0.
+- Автоматические миграции базы данных с помощью Alembic.
+- Покрытие тестами с использованием pytest.
+
+## 🛠 Технологический стек
+
+- **FastAPI** — современный веб-фреймворк для создания API.
+- **Pydantic** — валидация и сериализация данных.
+- **SQLAlchemy 2.0** — асинхронная ORM для работы с базой данных.
+- **SQLite** — легковесная база данных для разработки.
+- **aiosqlite** — асинхронный драйвер для SQLite.
+- **Alembic** — инструмент для миграций базы данных.
+- **pytest** — фреймворк для тестирования.
+
+## 📁 Структура проекта
+
+
+## ⚡ Быстрый старт
+
+1. **Клонирование репозитория**
+   ```bash
+   git clone https://github.com/username/movies_api.git
+pip install -r requirements.txt
+alembic upgrade head
+uvicorn src.main:app --reload
+GET /movies/?year_min=2000&min_rating=7.0&order_by=-rating&limit=10
