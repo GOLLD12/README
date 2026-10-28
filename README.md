@@ -26,14 +26,3 @@
 - **pytest** — фреймворк для тестирования.
 
 ## 📁 Структура проекта
-
-
-## ⚡ Быстрый старт
-
-1. **Клонирование репозитория**
-   ```bash
-   git clone https://github.com/username/movies_api.git
-pip install -r requirements.txt
-alembic upgrade head
-uvicorn src.main:app --reload
-GET /movies/?year_min=2000&min_rating=7.0&order_by=-rating&limit=10
